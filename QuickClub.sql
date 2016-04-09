@@ -256,26 +256,31 @@ COMMIT;
 --  Table structure for `user`
 -- ----------------------------
 DROP TABLE IF EXISTS `user`;
+
 CREATE TABLE `user` (
   `user_id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) DEFAULT NULL,
+  `username` varchar(255) DEFAULT NULL COMMENT '1',
   `password` varchar(255) DEFAULT NULL,
   `email` varchar(255) DEFAULT NULL,
-  `phone` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL COMMENT '6',
   `image` varchar(255) DEFAULT NULL,
-  `validationState` int(4) DEFAULT NULL,
-  `province` varchar(255) DEFAULT NULL,
-  `sch_id` int(11) DEFAULT NULL,
+  `validationState` int(4) DEFAULT NULL COMMENT '验证状态，',
+  `province` varchar(255) DEFAULT NULL COMMENT '8',
+  `sch_id` int(11) DEFAULT NULL COMMENT '2',
+  `major` varchar(255) DEFAULT NULL COMMENT '4',
+  `institute` varchar(255) DEFAULT NULL COMMENT '学院3',
+  `sex` varchar(255) DEFAULT NULL COMMENT '7',
+  `time` varchar(255) DEFAULT NULL COMMENT '5入学时间',
+  `schoolname` varchar(255) DEFAULT NULL COMMENT '学校名称',
+  `scholar` varchar(255) DEFAULT NULL COMMENT '学历',
   PRIMARY KEY (`user_id`),
   KEY `sch_id` (`sch_id`),
   CONSTRAINT `fk_user_sch` FOREIGN KEY (`sch_id`) REFERENCES `school` (`sch_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=27 DEFAULT CHARSET=utf8;
 
--- ----------------------------
---  Records of `user`
--- ----------------------------
-BEGIN;
-INSERT INTO `user` VALUES ('1', 'sunyiyou', '123456', '342065733@qq.com', '15636835602', null, '1', '黑龙江', '1'), ('2', 'sunpeng', '234567', '233333333@qq.com', '12345678902', null, '1', '黑龙江', '2'), ('3', '黄运智', 'adasdasd', 'papapapapappa@pa.com', '12334534533', null, '1', '内蒙古', '1');
-COMMIT;
+/*Data for the table `user` */
+
+insert  into `user`(`user_id`,`username`,`password`,`email`,`phone`,`image`,`validationState`,`province`,`sch_id`,`major`,`institute`,`sex`,`time`,`schoolname`,`scholar`) values (1,'sunyiyou','123456','342065733@qq.com','15636835602',NULL,1,'黑龙江',1,NULL,NULL,NULL,NULL,NULL,NULL),(2,'sunpeng222','234567','233333333@qq.com','12345678902','/fileupload/6f2560fb37b14db89c6740de7e101a5b.jpeg',1,'黑龙江',1,'软件工程','傻逼学院','男','20140902','哈尔滨工业大学',NULL),(17,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(18,NULL,'1,1','qqq@qqq.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(19,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(20,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(21,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(22,NULL,'1,1','123456',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL),(23,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(24,'孙鹏','1,1','123@qq.com','11111111111',NULL,NULL,'北京',1,'傻逼专业',NULL,'女','20140609',NULL,NULL),(25,'夏敏','1,1','sss@qq.com','11111111111',NULL,1,'四川',1,'软件工程','软件学院','女','20140609',NULL,NULL),(26,NULL,'111,111','test@qq.com',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+
 
 SET FOREIGN_KEY_CHECKS = 1;
